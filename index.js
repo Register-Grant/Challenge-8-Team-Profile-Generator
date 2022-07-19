@@ -8,3 +8,95 @@ const Intern = require('./lib/intern');
 const Manager = require('./lib/manager');
 
 const teamArr = [];
+const managerPrompt = () => {
+    return inquirer.prompt([{
+        type: 'input',
+        name: 'name',
+        message: "Please type in the newly created manager's name"
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: "Please type in the newly created manager's employee ID number"
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: "Please type in the newly created manager's email address"
+    },
+    {
+        type: 'input',
+        name: 'officeNumber',
+        message: "Please type in the newly created manager's office room number"
+    },
+    ])
+        //This takes the info input above, deconstructs it, throws it in a new variable then pushes it to a previously empty array
+        .then(managerData => {
+            const { name, id, email, officeNumber } = managerData;
+            const mintedManager = new Manager(name, id, email, officeNumber);
+            teamArr.push(mintedManager);
+        })
+};
+
+const employeePrompt = () => {
+    return inquirer.prompt([{
+        type: 'list',
+        name: 'role',
+        message: "Is this employee an engineer or an intern?",
+        choices: ['Intern', 'Engineer']
+    },
+    {
+        type: 'input',
+        name: 'name',
+        message: "Please type in the newly created employee's name"
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: "Please type in the newly created employee's ID number"
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: "Please type in the newly created employee's email address"
+    },
+    {
+        when: (input) => input.role === "Intern",
+        type: 'input',
+        name: 'school',
+        message: "Please type in the newly created intern's alma mater"
+    },
+    {
+        when: (input) => input.role != "Intern",
+        type: 'input',
+        name: 'gitHub',
+        message: "Please type in the newly created Engineer's GitHub username"
+    },
+    {
+        type: 'confirm',
+        name: 'additionalEmployee',
+        message: "Would you like to add any additional employees?",
+        default: false
+    }
+    ])
+    .then(employeeData => {
+        let {role, name, id, email, school, gitHub, additionalEmployee} = employeeData;
+        let mintedEmployee;
+        if (role === "Intern") {
+            mintedEmployee = new Intern(name, id, email, school);
+            console.log(mintedEmployee);
+        } else if (role ==="Engineer") {
+            mintedEmployee = new Engineer(name, id, email, gitHub);
+            console.log(mintedEmployee);
+        }
+        teamArr.push(mintedEmployee);
+        if (additionalEmployee) {
+            return employeePrompt(teamArr);
+        } else {
+            return teamArr;
+        }
+    })
+}
+
+managerPrompt()
+    .then(employeePrompt)
