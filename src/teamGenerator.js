@@ -51,6 +51,8 @@ const internPanel = function(intern) {
         <p>Alma Mater: ${Intern.school}</p>
     </div>
 </div>`
-}
+};
+
+const generateHTML = function(data) {}
 
 module.exports = generateHTML;

@@ -6,6 +6,7 @@ const Employee = require('./lib/employee');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 const Manager = require('./lib/manager');
+const generateHTML = require('./src/teamGenerator');
 
 const teamArr = [];
 const managerPrompt = () => {
@@ -78,10 +79,10 @@ const employeePrompt = () => {
         message: "Would you like to add any additional employees?",
         default: false
     }
-    ])
-    .then(employeeData => {
-        let {role, name, id, email, school, gitHub, additionalEmployee} = employeeData;
-        let mintedEmployee;
+])
+.then(employeeData => {
+    let {role, name, id, email, school, gitHub, additionalEmployee} = employeeData;
+    let mintedEmployee;
         if (role === "Intern") {
             mintedEmployee = new Intern(name, id, email, school);
             console.log(mintedEmployee);
@@ -95,6 +96,12 @@ const employeePrompt = () => {
         } else {
             return teamArr;
         }
+    })
+}
+
+const writeFile = data => {
+    fs.writeFile('index.html', generateHTML, function(err){
+    console.log(err);
     })
 }
 
