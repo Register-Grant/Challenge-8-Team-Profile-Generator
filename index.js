@@ -12,22 +12,22 @@ const managerPrompt = () => {
     return inquirer.prompt([{
         type: 'input',
         name: 'name',
-        message: "Please type in the newly created manager's name"
+        message: "Please type in the newly minted manager's name"
     },
     {
         type: 'input',
         name: 'id',
-        message: "Please type in the newly created manager's employee ID number"
+        message: "Please type in the newly minted manager's employee ID number"
     },
     {
         type: 'input',
         name: 'email',
-        message: "Please type in the newly created manager's email address"
+        message: "Please type in the newly minted manager's email address"
     },
     {
         type: 'input',
         name: 'officeNumber',
-        message: "Please type in the newly created manager's office room number"
+        message: "Please type in the newly minted manager's office room number"
     },
     ])
         //This takes the info input above, deconstructs it, throws it in a new variable then pushes it to a previously empty array
@@ -48,29 +48,29 @@ const employeePrompt = () => {
     {
         type: 'input',
         name: 'name',
-        message: "Please type in the newly created employee's name"
+        message: "Please type in the newly minted employee's name"
     },
     {
         type: 'input',
         name: 'id',
-        message: "Please type in the newly created employee's ID number"
+        message: "Please type in the newly minted employee's ID number"
     },
     {
         type: 'input',
         name: 'email',
-        message: "Please type in the newly created employee's email address"
+        message: "Please type in the newly minted employee's email address"
     },
     {
         when: (input) => input.role === "Intern",
         type: 'input',
         name: 'school',
-        message: "Please type in the newly created intern's alma mater"
+        message: "Please type in the newly minted intern's alma mater"
     },
     {
-        when: (input) => input.role != "Intern",
+        when: (input) => input.role === "Engineer",
         type: 'input',
         name: 'gitHub',
-        message: "Please type in the newly created Engineer's GitHub username"
+        message: "Please type in the newly minted Engineer's GitHub username"
     },
     {
         type: 'confirm',

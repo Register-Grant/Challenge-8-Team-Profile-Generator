@@ -4,13 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./dist/style.css">
+    <title>Team Generator</title>
 </head>
 <body>
-    <h1>gregister</h1>
-    <h2>salt lake city</h2>
-    <p>I'm tall and awesome.</p>
-    <a href="https://www.linkedin.com/in/grant-register-8035a12b/">LinkedIn</a>
-    <a href="https://github.com/Register-Grant">GitHub</a>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 jumbotron mb-3 team-heading">
+                <h1 class="text-center">Team Generator</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container mb-3 card-custom shadow-lg border-primary rounded">
+        <div class="row">
+            <div class="team-area col-12 d-flex justify-content-center">
+                <h2 class="manager">Manager</h2>
+            </div>
+        </div>
+        <div class="employee">
+            <p>Name: ${Manager.name}</p>
+            <p>Id: ${Manager.id}</p>
+            <p>Email: <a href="mailto:${Manager.email}">${Manager.email}</a></p>
+            <p>Office Number: ${Manager.officeNumber}</p>
+        </div>
+    </div>
+    <div class="container mb-3 card-custom shadow-lg border-primary rounded">
+        <div class="row">
+            <div class="team-area col-12 d-flex justify-content-center">
+                <h2 class="engineer">Engineer</h2>
+            </div>
+        </div>
+        <div class="employee">
+            <p>Name: ${Engineer.name}</p>
+            <p>Id: ${Engineer.id}</p>
+            <p>Email: <a href="mailto:${Engineer.email}">${Engineer.email}</a></p>
+            <p>Role (in case you couldn't read the heading): ${Engineer.role}</p>
+            <p>GitHub: ${Engineer.gitHub}</p>
+        </div>
+    </div>
+    <div class="container mb-3 card-custom shadow-lg border-primary rounded">
+        <div class="row">
+            <div class="team-area col-12 d-flex justify-content-center">
+                <h2 class="manager">Intern</h2>
+            </div>
+        </div>
+        <div class="employee">
+            <p>Name: ${Intern.name}</p>
+            <p>Id: ${Intern.id}</p>
+            <p>Email: <a href="mailto:${Intern.email}">${Intern.email}</a></p>
+            <p>Role (because still no read good): ${Intern.role}</p>
+            <p>Alma Mater: ${Intern.school}</p>
+        </div>
+    </div>
 </body>
 </html>
