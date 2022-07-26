@@ -100,7 +100,7 @@ const employeePrompt = () => {
 }
 
 const writeFile = data => {
-    fs.writeFile('index.html', data, function(err){
+    fs.writeFile('./dist/index.html', data, function(err){
     console.log(err);
     })
 }

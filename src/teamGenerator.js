@@ -53,26 +53,22 @@ const internsPanel = function (Intern) {
 </div>`
 };
 
-//CHANGE THIS GRANT
 const generateHTML = function(data) {
     pageArray = [];
     for (let i = 0; i < data.length; i++) {
         const employee = data[i];
         const role = employee.getRole();
 
-        // Calling managersCard
         if (role === 'Manager') {
             const managerPanel = managersPanel(employee);
             pageArray.push(managerPanel);
         }
 
-        // Calling engineersCard
         if (role === 'Engineer') {
             const engineerPanel = engineersPanel(employee);
             pageArray.push(engineerPanel);
         }
 
-        // Calling internsCard 
         if (role === 'Intern') {
             const internPanel = internsPanel(employee);
             pageArray.push(internPanel);
