@@ -100,10 +100,18 @@ const employeePrompt = () => {
 }
 
 const writeFile = data => {
-    fs.writeFile('index.html', generateHTML, function(err){
+    fs.writeFile('index.html', data, function(err){
     console.log(err);
     })
 }
 
 managerPrompt()
-    .then(employeePrompt)
+    .then(employeePrompt).then(teamArr => {
+        return generateHTML(teamArr);
+    })
+    .then(pageHTML => {
+        return writeFile(pageHTML);
+    })
+    .catch(err => {
+        console.log(err);
+    });
