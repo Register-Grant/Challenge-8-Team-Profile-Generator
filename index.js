@@ -85,10 +85,8 @@ const employeePrompt = () => {
     let mintedEmployee;
         if (role === "Intern") {
             mintedEmployee = new Intern(name, id, email, school);
-            console.log(mintedEmployee);
         } else if (role ==="Engineer") {
             mintedEmployee = new Engineer(name, id, email, gitHub);
-            console.log(mintedEmployee);
         }
         teamArr.push(mintedEmployee);
         if (additionalEmployee) {

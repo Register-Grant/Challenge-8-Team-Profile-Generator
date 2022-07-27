@@ -4,7 +4,7 @@ const managersPanel = function(mintedManager) {
     <div class="panel employee-panel">
         <div class="panel-header">
         <h2 class="panel-title">${mintedManager.name}</h2>
-        <h3 class="panel-title"><i class="fas fa-mug-hot mr-2"></i>${mintedManager.getRole()}</h3>
+        <h3 class="panel-title"><i class="fas fa-mug-hot"></i>${mintedManager.getRole()}</h3>
         </div>
         <div class="panel-body">
             <ul class="list-group">
@@ -22,7 +22,7 @@ const engineersPanel = function(Engineer) {
     <div class="panel employee-panel">
         <div class="panel-header">
         <h2 class="panel-title">${Engineer.name}</h2>
-        <h3 class="panel-title"><i class="fas fa-mug-hot mr-2"></i>${Engineer.getRole()}</h3>
+        <h3 class="panel-title"><i class="fas fa-user-graduate"></i>${Engineer.getRole()}</h3>
         </div>
         <div class="panel-body">
             <ul class="list-group">
