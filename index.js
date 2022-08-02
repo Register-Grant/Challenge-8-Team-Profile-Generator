@@ -2,6 +2,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 
 //Objects
+// How come Employee's value is declared but never read?
 const Employee = require('./lib/employee');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
